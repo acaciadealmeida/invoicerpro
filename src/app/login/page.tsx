@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Logo } from "@/components/ui/Logo";
 
 const EyeIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -32,16 +33,8 @@ export default function LoginPage() {
         style={{ maxWidth: 500, boxShadow: "var(--shadow-modal)" }}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2.5 mb-8 justify-center">
-          <div
-            className="flex items-center justify-center rounded-lg text-white text-sm font-bold"
-            style={{ width: 36, height: 36, backgroundColor: "#E8271A" }}
-          >
-            IP
-          </div>
-          <span className="text-xl font-bold text-ink tracking-tight">
-            INVOICER<span className="font-extrabold">PRO</span>
-          </span>
+        <div className="flex justify-center mb-8">
+          <Logo width={180} />
         </div>
 
         <h1 className="text-lg font-semibold text-ink text-center mb-6">Welcome back!</h1>

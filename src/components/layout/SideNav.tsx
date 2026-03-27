@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { config } from "@/lib/config";
+import { Logo } from "@/components/ui/Logo";
 
 // Simple SVG icons matching the Figma design
 const HomeIcon = () => (
@@ -49,14 +49,8 @@ export function SideNav() {
       style={{ width: 210, minWidth: 210 }}
     >
       {/* Logo */}
-      <div className="flex items-center gap-2.5 px-5 py-5 border-b border-border">
-        <div
-          className="flex items-center justify-center rounded text-white text-xs font-bold"
-          style={{ width: 28, height: 28, backgroundColor: "#E8271A" }}
-        >
-          IP
-        </div>
-        <span className="text-sm font-bold text-ink tracking-tight">INVOICERPRO</span>
+      <div className="flex items-center px-5 py-5 border-b border-border">
+        <Logo width={140} />
       </div>
 
       {/* Nav links */}

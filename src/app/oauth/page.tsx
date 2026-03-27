@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 
 type OAuthStep = "landing" | "permissions" | "success";
 
@@ -17,10 +18,7 @@ export default function OAuthPage() {
         <div className="w-full max-w-md bg-surface rounded-2xl p-10" style={{ boxShadow: "var(--shadow-modal)" }}>
           {/* Logos */}
           <div className="flex items-center justify-center gap-6 mb-8">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-brand flex items-center justify-center text-white text-xs font-bold">IP</div>
-              <span className="text-sm font-bold text-ink">INVOICERPRO</span>
-            </div>
+            <Logo width={140} />
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             <div className="w-8 h-8 rounded-lg bg-[#f5de00] flex items-center justify-center">
               <span className="text-xs font-bold text-ink">GC</span>
