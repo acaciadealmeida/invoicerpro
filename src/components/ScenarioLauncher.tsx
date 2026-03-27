@@ -81,7 +81,7 @@ export function ScenarioLauncher() {
       {/* Floating button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-ink text-white text-sm font-medium hover:bg-ink/90 transition-colors cursor-pointer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-ink text-page text-sm font-medium hover:opacity-90 transition-opacity cursor-pointer"
         aria-label="Demo scenarios"
       >
         <PlayIcon />

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* ─── InvoicerPRO Design Tokens ──────────────────────────────────────────── */
 @theme {
@@ -44,6 +45,28 @@
   --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
   --shadow-modal: 0 20px 60px -10px rgb(0 0 0 / 0.20);
 }
+
+/* ─── Dark mode overrides ─────────────────────────────────────────────────── */
+html.dark {
+  --color-surface:          #1e1e26;
+  --color-page:             #13131a;
+  --color-fill:             #2a2a36;
+  --color-border:           #2e2e3c;
+  --color-border-strong:    #3a3a4e;
+  --color-ink:              #f0f0f4;
+  --color-ink-secondary:    #c0c0d4;
+  --color-ink-placeholder:  #d8d8ea;
+  --color-ink-muted:        #9898b0;
+}
+
+html.dark body {
+  background-color: var(--color-page);
+  color: var(--color-ink);
+}
+
+/* ─── Logo mark colour ────────────────────────────────────────────────────── */
+.logo-mark { fill: #FB0001; }
+html.dark .logo-mark { fill: white; }
 
 /* ─── Base ────────────────────────────────────────────────────────────────── */
 * {

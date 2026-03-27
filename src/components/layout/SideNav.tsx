@@ -48,7 +48,7 @@ export function SideNav() {
       style={{ width: 210, minWidth: 210 }}
     >
       {/* Logo */}
-      <Link href="/dashboard" className="flex items-center px-[14px] py-[5px]" style={{ height: 69 }}>
+      <Link href="/dashboard" className="flex items-center px-[22px] py-[5px]" style={{ height: 69 }}>
         <Logo width={138} />
       </Link>
 
