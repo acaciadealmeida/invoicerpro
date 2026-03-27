@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── InvoicerPRO Design Tokens ──────────────────────────────────────────── */
+@theme {
+  /* Brand */
+  --color-brand:            #E8271A; /* InvoicerPRO red — logo, destructive */
+  --color-primary:          #3B6FEB; /* Main blue — buttons, active nav, links, charts */
+  --color-primary-hover:    #2F5DD4; /* Darker blue for hover states */
+
+  /* Surfaces */
+  --color-surface:          #FFFFFF; /* Cards, sidebar, modals */
+  --color-page:             #F4F5F7; /* Page background */
+  --color-border:           #E5E7EB; /* Dividers, table borders, input borders */
+
+  /* Text */
+  --color-ink:              #1A1C2A; /* Primary text */
+  --color-ink-secondary:    #6B7280; /* Secondary text, placeholders */
+
+  /* Status — Invoice status badges */
+  --color-status-pending:   #F97316; /* Waiting… (orange) */
+  --color-status-confirmed: #16A34A; /* Confirmed (green) */
+  --color-status-submitted: #7C3AED; /* Submitted (purple) */
+  --color-status-paid:      #3B6FEB; /* Paid out (same as primary) */
+  --color-status-draft:     #6B7280; /* Draft (gray) */
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Border radius */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+  --shadow-modal: 0 20px 60px -10px rgb(0 0 0 / 0.20);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Prototype canvas — fixed 1280px width, no responsive layout needed */
+#__next,
+body > div {
+  min-width: 1280px;
 }
