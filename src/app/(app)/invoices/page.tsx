@@ -11,6 +11,12 @@ function formatCurrency(pence: number) {
   return `${config.currencySymbol}${(pence / 100).toLocaleString("en-GB", { minimumFractionDigits: 2 })}`;
 }
 
+function formatDate(index: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() - index);
+  return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+}
+
 const SearchIcon = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
@@ -90,12 +96,13 @@ export default function InvoicesPage() {
               <th className="text-right text-xs font-medium text-ink-secondary px-4 py-3">
                 <span className="flex items-center justify-end gap-1">Amount <SortIcon /></span>
               </th>
-              <th className="text-right text-xs font-medium text-ink-secondary px-4 py-3">View</th>
+              <th className="text-center text-xs font-medium text-ink-secondary px-4 py-3">View</th>
             </tr>
           </thead>
           <tbody>
-            {paged.map((inv) => (
-              <tr
+            {paged.map((inv) => {
+              const dateIndex = filtered.indexOf(inv);
+              return (<tr
                 key={inv.id}
                 className="border-b border-border last:border-0 hover:bg-page cursor-pointer transition-colors"
                 onClick={() => router.push(`/invoices/${inv.id}`)}
@@ -103,15 +110,16 @@ export default function InvoicesPage() {
                 <td className="px-4 py-3"><InvoiceStatusBadge status={inv.status} /></td>
                 <td className="px-4 py-3 text-ink">{inv.reference}</td>
                 <td className="px-4 py-3 text-ink">{inv.customerName}</td>
-                <td className="px-4 py-3 text-ink-secondary">{inv.createdAt}</td>
+                <td className="px-4 py-3 text-ink-secondary">{formatDate(dateIndex)}</td>
                 <td className="px-4 py-3"><PaymentStatusText status={inv.paymentStatus} /></td>
                 <td className="px-4 py-3 text-ink-secondary">{inv.paymentId || "—"}</td>
                 <td className="px-4 py-3 text-right text-ink">{formatCurrency(inv.amount)}</td>
-                <td className="px-4 py-3 text-right text-ink-secondary">
+                <td className="px-4 py-3 text-center text-ink-secondary">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
 

@@ -83,7 +83,7 @@ export default function CustomersPage() {
               <th className="text-left text-xs font-medium text-ink-secondary px-4 py-3">Email</th>
               <th className="text-left text-xs font-medium text-ink-secondary px-4 py-3">Mandate Status</th>
               <th className="text-left text-xs font-medium text-ink-secondary px-4 py-3">Mandate Reference</th>
-              <th className="text-right text-xs font-medium text-ink-secondary px-4 py-3">View</th>
+              <th className="text-center text-xs font-medium text-ink-secondary px-4 py-3">View</th>
             </tr>
           </thead>
           <tbody>
@@ -97,7 +97,7 @@ export default function CustomersPage() {
                 <td className="px-4 py-3 text-ink-secondary">{c.email}</td>
                 <td className="px-4 py-3"><MandateStatusBadge status={c.mandateStatus} /></td>
                 <td className="px-4 py-3 text-ink-secondary">{c.mandateReference}</td>
-                <td className="px-4 py-3 text-right text-ink-secondary"><ArrowIcon /></td>
+                <td className="px-4 py-3 text-center text-ink-secondary"><ArrowIcon /></td>
               </tr>
             ))}
           </tbody>
