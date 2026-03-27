@@ -11,7 +11,7 @@ export function InvoicePreview({ invoice }: { invoice: Invoice }) {
   const total = subtotal + totalTax;
 
   return (
-    <div className="bg-surface rounded-xl border border-border p-6" style={{ boxShadow: "var(--shadow-card)" }}>
+    <div className="bg-surface rounded-xl border border-border p-6">
       {/* Header */}
       <div className="flex items-start justify-between pb-4 mb-4 border-b border-border">
         <div>

@@ -33,7 +33,6 @@ export function Modal({ open, onClose, title, children, width = "max-w-md" }: Mo
       {/* Panel */}
       <div
         className={`relative w-full ${width} bg-surface rounded-xl p-6`}
-        style={{ boxShadow: "var(--shadow-modal)" }}
       >
         {title && (
           <div className="flex items-center justify-between mb-4">

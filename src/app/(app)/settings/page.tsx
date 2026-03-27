@@ -107,7 +107,7 @@ function SettingsContent() {
 
       {gcState === "connected" && (
         <div className="max-w-xl">
-          <div className="bg-surface border border-border rounded-lg p-6" style={{ boxShadow: "var(--shadow-card)" }}>
+          <div className="bg-surface border border-border rounded-lg p-6">
             <div className="flex items-center gap-4 mb-5">
               <GCLogo />
               <div>
@@ -148,7 +148,7 @@ function SettingsContent() {
 
       {gcState === "verified" && (
         <div className="max-w-xl">
-          <div className="bg-surface border border-border rounded-lg p-6" style={{ boxShadow: "var(--shadow-card)" }}>
+          <div className="bg-surface border border-border rounded-lg p-6">
             <div className="flex items-center gap-4 mb-4">
               <GCLogo />
               <div>
@@ -173,7 +173,7 @@ function SettingsContent() {
 
 function ProviderCard({ logo, name, description, action }: { logo: React.ReactNode; name: string; description: string; action: React.ReactNode }) {
   return (
-    <div className="bg-surface border border-border rounded-lg p-5 flex flex-col items-start gap-3" style={{ boxShadow: "var(--shadow-card)" }}>
+    <div className="bg-surface border border-border rounded-lg p-5 flex flex-col items-start gap-3">
       {logo}
       <div>
         <p className="font-medium text-ink">{name}</p>

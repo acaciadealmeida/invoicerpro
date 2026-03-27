@@ -102,7 +102,7 @@ export default function ViewCustomerPage() {
         </div>
 
         {/* Right: invoice history */}
-        <div className="flex-1 bg-surface rounded-lg border border-border" style={{ boxShadow: "var(--shadow-card)" }}>
+        <div className="flex-1 bg-surface rounded-lg border border-border">
           <div className="flex items-center justify-between px-5 py-4 border-b border-border">
             <div>
               <h2 className="text-base font-semibold text-ink">Invoice history</h2>

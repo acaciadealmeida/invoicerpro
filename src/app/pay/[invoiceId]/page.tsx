@@ -20,7 +20,7 @@ export default function PublicPaymentPage() {
 
   return (
     <div className="min-h-screen bg-page flex items-center justify-center px-4" style={{ minWidth: 1280 }}>
-      <div className="w-full max-w-lg bg-surface rounded-2xl overflow-hidden" style={{ boxShadow: "var(--shadow-modal)" }}>
+      <div className="w-full max-w-lg bg-surface rounded-2xl overflow-hidden border border-border">
         {/* GoCardless header */}
         <div className="bg-ink px-8 py-5 flex items-center justify-between">
           <div className="flex items-center gap-2">

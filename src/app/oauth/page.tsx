@@ -15,7 +15,7 @@ export default function OAuthPage() {
   if (step === "landing") {
     return (
       <div className="min-h-screen bg-page flex items-center justify-center" style={{ minWidth: 1280 }}>
-        <div className="w-full max-w-md bg-surface rounded-2xl p-10" style={{ boxShadow: "var(--shadow-modal)" }}>
+        <div className="w-full max-w-md bg-surface rounded-2xl p-10">
           {/* Logos */}
           <div className="flex items-center justify-center gap-6 mb-8">
             <Logo width={140} />
@@ -44,7 +44,7 @@ export default function OAuthPage() {
   if (step === "permissions") {
     return (
       <div className="min-h-screen bg-page flex items-center justify-center" style={{ minWidth: 1280 }}>
-        <div className="w-full max-w-md bg-surface rounded-2xl p-10" style={{ boxShadow: "var(--shadow-modal)" }}>
+        <div className="w-full max-w-md bg-surface rounded-2xl p-10">
           <h1 className="text-lg font-semibold text-ink mb-2">Review permissions</h1>
           <p className="text-sm text-ink-secondary mb-6">
             InvoicerPRO is requesting the following permissions:
@@ -88,7 +88,7 @@ export default function OAuthPage() {
 
   return (
     <div className="min-h-screen bg-page flex items-center justify-center" style={{ minWidth: 1280 }}>
-      <div className="w-full max-w-md bg-surface rounded-2xl p-10 text-center" style={{ boxShadow: "var(--shadow-modal)" }}>
+      <div className="w-full max-w-md bg-surface rounded-2xl p-10 text-center">
         <div className="w-14 h-14 rounded-full bg-status-confirmed/10 flex items-center justify-center mx-auto mb-5">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
         </div>

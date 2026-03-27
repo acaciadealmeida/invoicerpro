@@ -153,7 +153,7 @@ export default function ViewInvoicePage() {
         {/* Right: share + preview */}
         <div className="flex-1">
           {/* Share bar */}
-          <div className="flex items-center justify-between bg-surface border border-border rounded-lg px-5 py-3 mb-5" style={{ boxShadow: "var(--shadow-card)" }}>
+          <div className="flex items-center justify-between bg-surface border border-border rounded-lg px-5 py-3 mb-5">
             <p className="text-sm font-medium text-ink">Share</p>
             <div className="flex items-center gap-4">
               <button

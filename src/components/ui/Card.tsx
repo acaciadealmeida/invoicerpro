@@ -12,7 +12,7 @@ export function Card({ padding = true, className = "", children, ...props }: Car
         padding ? "p-4" : "",
         className,
       ].join(" ")}
-      style={{ boxShadow: "var(--shadow-card)" }}
+     
       {...props}
     >
       {children}

@@ -37,7 +37,6 @@ export function ScenarioLauncher() {
       {open && (
         <div
           className="fixed bottom-20 right-6 z-50 w-80 rounded-xl bg-surface border border-border overflow-hidden"
-          style={{ boxShadow: "var(--shadow-modal)" }}
         >
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-page">
@@ -82,7 +81,7 @@ export function ScenarioLauncher() {
       {/* Floating button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-ink text-white text-sm font-medium shadow-lg hover:bg-ink/90 transition-colors cursor-pointer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-ink text-white text-sm font-medium hover:bg-ink/90 transition-colors cursor-pointer"
         aria-label="Demo scenarios"
       >
         <PlayIcon />
