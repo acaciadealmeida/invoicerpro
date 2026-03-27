@@ -1,9 +1,10 @@
 "use client";
 
 import { config } from "@/lib/config";
+import { Logo } from "@/components/ui/Logo";
 
 const SearchIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8"/>
     <path d="M21 21l-4.35-4.35"/>
   </svg>
@@ -16,38 +17,95 @@ const BellIcon = () => (
   </svg>
 );
 
+const SettingsIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+  </svg>
+);
+
+const MenuIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+);
+
 export function TopNav() {
   return (
-    <header className="flex items-center justify-between bg-surface border-b border-border px-6 h-[70px] flex-shrink-0">
-      {/* Search */}
-      <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-secondary">
-          <SearchIcon />
-        </span>
+    <header className="flex items-center w-full bg-surface border-b border-border flex-shrink-0 px-4 md:px-8 h-[55px] md:h-[70px]"
+    >
+      {/* Mobile: logo — hidden on desktop */}
+      <div className="md:hidden">
+        <Logo width={114} />
+      </div>
+
+      {/* Desktop: search bar — hidden on mobile */}
+      <div
+        className="hidden md:flex items-center gap-2 border border-border bg-surface rounded-lg text-[12px] w-full max-w-[400px]"
+        style={{ padding: "8px 12px", color: "var(--color-ink-placeholder)" }}
+      >
+        <SearchIcon />
         <input
           type="text"
           placeholder="Search"
-          className="w-72 h-9 pl-9 pr-3 rounded-md border border-border bg-page text-sm text-ink placeholder:text-ink-secondary outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors"
+          className="flex-1 bg-transparent outline-none text-[12px]"
+          style={{ color: "var(--color-ink-placeholder)" }}
         />
       </div>
 
       {/* Right side */}
-      <div className="flex items-center gap-4">
-        {/* Bell with notification badge */}
-        <button className="relative text-ink-secondary hover:text-ink cursor-pointer" aria-label="Notifications">
-          <BellIcon />
-          {config.notificationCount > 0 && (
-            <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-brand text-white text-[10px] font-bold">
-              {config.notificationCount}
-            </span>
-          )}
+      <div className="flex items-center ml-auto gap-1">
+        {/* Bell with badge — always visible */}
+        <div className="relative flex items-center justify-center w-10 h-10">
+          <span style={{ color: "#d9dae8" }}>
+            <BellIcon />
+          </span>
+          <span
+            className="absolute top-1 right-1 flex items-center justify-center rounded-full text-white font-bold"
+            style={{
+              backgroundColor: "var(--color-danger)",
+              fontSize: 8.4,
+              lineHeight: "12px",
+              minWidth: 14,
+              height: 14,
+              padding: "0 3px",
+            }}
+          >
+            1+
+          </span>
+        </div>
+
+        {/* Mobile icon buttons: search, settings, menu */}
+        <button className="md:hidden flex items-center justify-center p-3 rounded-full" style={{ color: "#d9dae8" }}>
+          <SearchIcon />
+        </button>
+        <button className="md:hidden flex items-center justify-center p-3 rounded-full" style={{ color: "#d9dae8" }}>
+          <SettingsIcon />
+        </button>
+        <button className="md:hidden flex items-center justify-center p-3 rounded-full" style={{ color: "#d9dae8" }}>
+          <MenuIcon />
         </button>
 
-        {/* User */}
-        <div className="flex items-center gap-2.5">
-          <span className="text-sm text-ink">{config.userName}</span>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-white text-xs font-semibold">
-            {config.userInitial}
+        {/* Desktop: divider + user — hidden on mobile */}
+        <div className="hidden md:flex items-center">
+          <div className="border-r border-border mx-4" style={{ height: 38 }} />
+          <div className="flex items-center gap-3">
+            <span className="text-[12px]" style={{ color: "var(--color-ink-muted)" }}>
+              {config.userName}
+            </span>
+            <div
+              className="flex items-center justify-center rounded-full text-[14px] font-semibold flex-shrink-0"
+              style={{
+                width: 32,
+                height: 32,
+                backgroundColor: "var(--color-fill)",
+                color: "var(--color-ink)",
+              }}
+            >
+              {config.userInitial}
+            </div>
           </div>
         </div>
       </div>

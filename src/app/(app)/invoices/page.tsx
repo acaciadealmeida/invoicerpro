@@ -8,7 +8,7 @@ import { InvoiceStatusBadge, PaymentStatusText } from "@/components/ui/Badge";
 import { config } from "@/lib/config";
 
 function formatCurrency(pence: number) {
-  return `${config.currencySymbol}${(pence / 100).toLocaleString("en-GB", { minimumFractionDigits: 2 })} GBD`;
+  return `${config.currencySymbol}${(pence / 100).toLocaleString("en-GB", { minimumFractionDigits: 2 })}`;
 }
 
 const SearchIcon = () => (
@@ -40,12 +40,13 @@ export default function InvoicesPage() {
   const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
-    <div className="px-8 py-8">
+    <div className="px-4 md:px-8 py-8">
+      <div className="mx-auto w-full max-w-[1000px]">
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div>
-          <h1 className="text-xl font-semibold text-ink">Invoices</h1>
-          <p className="text-sm text-ink-secondary mt-0.5">All your past, current and incoming invoices.</p>
+          <h1 className="font-bold leading-10" style={{ fontSize: 18, color: "var(--color-ink-placeholder)" }}>Invoices</h1>
+          <p className="text-[14px] leading-6" style={{ color: "var(--color-ink-muted)" }}>All your past, current and incoming invoices.</p>
         </div>
         <Button onClick={() => router.push("/invoices/new")}>New invoice</Button>
       </div>
@@ -53,23 +54,23 @@ export default function InvoicesPage() {
       {/* Table card */}
       <div className="bg-surface rounded-lg border border-border" style={{ boxShadow: "var(--shadow-card)" }}>
         {/* Toolbar */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-          <div className="flex items-center gap-3">
-            <button className="flex items-center gap-1 text-sm text-ink-secondary hover:text-ink cursor-pointer">
+        <div className="flex items-center justify-between px-3 py-2 border-b border-border">
+          <div className="flex items-center gap-[52px]">
+            <button className="flex items-center gap-2 text-[12px] font-semibold text-ink-muted hover:text-ink cursor-pointer">
               Sort by <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <button className="flex items-center gap-1 text-sm text-ink-secondary hover:text-ink cursor-pointer">
+            <button className="flex items-center gap-2 text-[12px] font-semibold text-ink-muted hover:text-ink cursor-pointer">
               Filter <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
             </button>
           </div>
-          <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-secondary"><SearchIcon /></span>
+          <div className="relative flex-1 max-w-[400px]">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted"><SearchIcon /></span>
             <input
               type="text"
               placeholder="Search"
               value={search}
               onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-              className="w-56 h-8 pl-8 pr-3 rounded-md border border-border bg-page text-sm text-ink placeholder:text-ink-secondary outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors"
+              className="w-full h-8 pl-8 pr-3 rounded-lg border border-border bg-surface text-[12px] text-ink placeholder:text-ink-muted outline-none focus:border-primary transition-colors"
             />
           </div>
         </div>
@@ -100,11 +101,11 @@ export default function InvoicesPage() {
                 onClick={() => router.push(`/invoices/${inv.id}`)}
               >
                 <td className="px-4 py-3"><InvoiceStatusBadge status={inv.status} /></td>
-                <td className="px-4 py-3 font-medium text-ink">{inv.reference}</td>
+                <td className="px-4 py-3 text-ink">{inv.reference}</td>
                 <td className="px-4 py-3 text-ink">{inv.customerName}</td>
                 <td className="px-4 py-3 text-ink-secondary">{inv.createdAt}</td>
                 <td className="px-4 py-3"><PaymentStatusText status={inv.paymentStatus} /></td>
-                <td className="px-4 py-3 text-ink-secondary font-mono text-xs">{inv.paymentId || "—"}</td>
+                <td className="px-4 py-3 text-ink-secondary">{inv.paymentId || "—"}</td>
                 <td className="px-4 py-3 text-right text-ink">{formatCurrency(inv.amount)}</td>
                 <td className="px-4 py-3 text-right text-ink-secondary">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -123,7 +124,7 @@ export default function InvoicesPage() {
                 onClick={() => typeof p === "number" && setPage(p)}
                 className={[
                   "w-7 h-7 rounded text-xs font-medium cursor-pointer",
-                  p === page ? "bg-primary text-white" : "text-ink-secondary hover:bg-page",
+                  p === page ? "bg-fill text-ink-placeholder font-semibold" : "text-ink-muted hover:bg-page",
                   p === "…" ? "cursor-default" : "",
                 ].join(" ")}
               >
@@ -132,6 +133,7 @@ export default function InvoicesPage() {
             ))}
           </div>
         )}
+      </div>
       </div>
     </div>
   );

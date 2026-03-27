@@ -35,12 +35,13 @@ export default function CustomersPage() {
   const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
-    <div className="px-8 py-8">
+    <div className="px-4 md:px-8 py-8">
+      <div className="mx-auto w-full max-w-[1000px]">
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div>
-          <h1 className="text-xl font-semibold text-ink">Customers</h1>
-          <p className="text-sm text-ink-secondary mt-0.5">All your active and inactive customers</p>
+          <h1 className="font-bold leading-10" style={{ fontSize: 18, color: "var(--color-ink-placeholder)" }}>Customers</h1>
+          <p className="text-[14px] leading-6" style={{ color: "var(--color-ink-muted)" }}>All your active and inactive customers</p>
         </div>
         <div className="flex items-center gap-3">
           <Button variant="secondary" onClick={() => {}}>Import GoCardless customers</Button>
@@ -51,25 +52,25 @@ export default function CustomersPage() {
       {/* Table card */}
       <div className="bg-surface rounded-lg border border-border" style={{ boxShadow: "var(--shadow-card)" }}>
         {/* Toolbar */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-          <div className="flex items-center gap-3">
-            <button className="flex items-center gap-1 text-sm text-ink-secondary hover:text-ink cursor-pointer">
+        <div className="flex items-center justify-between px-3 py-2 border-b border-border">
+          <div className="flex items-center gap-10">
+            <button className="flex items-center gap-2 text-[12px] font-semibold text-ink-muted hover:text-ink cursor-pointer">
               Sort by
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <button className="flex items-center gap-1 text-sm text-ink-secondary hover:text-ink cursor-pointer">
+            <button className="flex items-center gap-2 text-[12px] font-semibold text-ink-muted hover:text-ink cursor-pointer">
               Filter
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
             </button>
           </div>
-          <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-secondary"><SearchIcon /></span>
+          <div className="relative flex-1 max-w-[400px]">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted"><SearchIcon /></span>
             <input
               type="text"
               placeholder="Search"
               value={search}
               onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-              className="w-56 h-8 pl-8 pr-3 rounded-md border border-border bg-page text-sm text-ink placeholder:text-ink-secondary outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors"
+              className="w-full h-8 pl-8 pr-3 rounded-lg border border-border bg-surface text-[12px] text-ink placeholder:text-ink-muted outline-none focus:border-primary transition-colors"
             />
           </div>
         </div>
@@ -95,7 +96,7 @@ export default function CustomersPage() {
                 <td className="px-4 py-3 font-medium text-ink">{c.name}</td>
                 <td className="px-4 py-3 text-ink-secondary">{c.email}</td>
                 <td className="px-4 py-3"><MandateStatusBadge status={c.mandateStatus} /></td>
-                <td className="px-4 py-3 text-ink-secondary font-mono text-xs">{c.mandateReference}</td>
+                <td className="px-4 py-3 text-ink-secondary">{c.mandateReference}</td>
                 <td className="px-4 py-3 text-right text-ink-secondary"><ArrowIcon /></td>
               </tr>
             ))}
@@ -113,7 +114,7 @@ export default function CustomersPage() {
                   onClick={() => setPage(p)}
                   className={[
                     "w-7 h-7 rounded text-xs font-medium cursor-pointer",
-                    p === page ? "bg-primary text-white" : "text-ink-secondary hover:bg-page",
+                    p === page ? "bg-fill text-ink-placeholder font-semibold" : "text-ink-muted hover:bg-page",
                   ].join(" ")}
                 >
                   {p}
@@ -123,6 +124,7 @@ export default function CustomersPage() {
             {totalPages > 5 && <span className="text-ink-secondary text-xs px-1">…</span>}
           </div>
         )}
+      </div>
       </div>
     </div>
   );

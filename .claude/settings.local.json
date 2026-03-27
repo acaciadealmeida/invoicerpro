@@ -17,7 +17,22 @@
       "Bash(git config:*)",
       "Bash(gh repo:*)",
       "Bash(npm run:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(npx agentation-mcp:*)",
+      "Bash(printf \"Y\\\\n\\\\n\")",
+      "Bash(printf \"Y\\\\n4747\\\\n\")",
+      "Bash(npx add-mcp:*)",
+      "Read(//Users/adealmeida/**)",
+      "mcp__figma__get_design_context",
+      "Bash(jq -r .[0].text /Users/adealmeida/.claude/projects/-Users-adealmeida-Desktop-InvoicerPRO/f0600e44-106e-401e-93db-730d57d709ab/tool-results/toolu_011j71pzGNtbSrdqgLqJT7yc.json)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(perl -ne 'print if /bg-\\\\[/ and /Tag/ ... /\\\\/\\\\>/')",
+      "Bash(python3:*)"
+    ],
+    "additionalDirectories": [
+      "/Users/adealmeida",
+      "/tmp"
     ]
   }
 }

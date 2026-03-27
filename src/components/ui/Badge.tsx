@@ -3,15 +3,15 @@ import type { MandateStatus } from "@/lib/data/customers";
 
 // ─── Invoice status badge (Draft, Waiting, Paid) ───────────────────────────
 const invoiceStatusConfig: Record<InvoiceStatus, { label: string; className: string }> = {
-  draft:   { label: "Draft",    className: "border border-ink-secondary text-ink-secondary bg-white" },
-  waiting: { label: "Waiting…", className: "border border-status-pending text-status-pending bg-white" },
-  paid:    { label: "Paid ✓",   className: "bg-primary/10 text-primary border border-primary/20" },
+  draft:   { label: "Draft",    className: "bg-[#f1f5f9] border border-[#d9dae8] text-[#5a5c69]" },
+  waiting: { label: "Waiting…", className: "bg-[#fff6ed] border border-[#ffe2bf] text-[#f78f41]" },
+  paid:    { label: "Paid",     className: "bg-[#e3f0ff] border border-[#cfd4fc] text-[#4476f9]" },
 };
 
 export function InvoiceStatusBadge({ status }: { status: InvoiceStatus }) {
   const { label, className } = invoiceStatusConfig[status];
   return (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${className}`}>
+    <span className={`inline-flex items-center px-1 py-0 rounded text-[11px] font-semibold ${className}`}>
       {label}
     </span>
   );
@@ -19,13 +19,13 @@ export function InvoiceStatusBadge({ status }: { status: InvoiceStatus }) {
 
 // ─── Payment status text (Pending, Submitted, Confirmed, Paid out) ─────────
 const paymentStatusConfig: Record<PaymentStatus, { label: string; className: string }> = {
-  draft:     { label: "Draft",       className: "text-ink-secondary" },
-  pending:   { label: "Pending",     className: "text-status-pending" },
-  submitted: { label: "Submitted",   className: "text-status-submitted" },
-  confirmed: { label: "Confirmed",   className: "text-status-confirmed" },
-  paid_out:  { label: "Paid out",    className: "text-primary" },
+  draft:     { label: "Draft",       className: "text-[#5a5c69]" },
+  pending:   { label: "Pending",     className: "text-[#f78f41]" },
+  submitted: { label: "Submitted",   className: "text-[#f78f41]" },
+  confirmed: { label: "Confirmed",   className: "text-[#71b771]" },
+  paid_out:  { label: "Paid out",    className: "text-[#4476f9]" },
   failed:    { label: "Failed",      className: "text-brand" },
-  cancelled: { label: "Cancelled",   className: "text-ink-secondary" },
+  cancelled: { label: "Cancelled",   className: "text-[#5a5c69]" },
 };
 
 export function PaymentStatusText({ status }: { status: PaymentStatus }) {
@@ -35,16 +35,16 @@ export function PaymentStatusText({ status }: { status: PaymentStatus }) {
 
 // ─── Mandate status badge ──────────────────────────────────────────────────
 const mandateStatusConfig: Record<MandateStatus, { label: string; className: string }> = {
-  active:    { label: "+ active",    className: "bg-primary/10 text-primary" },
-  pending:   { label: "pending",     className: "bg-status-pending/10 text-status-pending" },
-  cancelled: { label: "cancelled",   className: "bg-ink-secondary/10 text-ink-secondary" },
-  expired:   { label: "expired",     className: "bg-brand/10 text-brand" },
+  active:    { label: "• active",    className: "bg-[#e3f0ff] border border-[#cfd4fc] text-[#4476f9]" },
+  pending:   { label: "• pending",   className: "bg-[#fff6ed] border border-[#ffe2bf] text-[#f78f41]" },
+  cancelled: { label: "• cancelled", className: "bg-[#f1f5f9] border border-[#d9dae8] text-[#5a5c69]" },
+  expired:   { label: "• expired",   className: "bg-[#f1f5f9] border border-[#d9dae8] text-[#5a5c69]" },
 };
 
 export function MandateStatusBadge({ status }: { status: MandateStatus }) {
   const { label, className } = mandateStatusConfig[status];
   return (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${className}`}>
+    <span className={`inline-flex items-center px-1 py-0 rounded text-[11px] font-semibold ${className}`}>
       {label}
     </span>
   );

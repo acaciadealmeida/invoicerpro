@@ -9,13 +9,20 @@
 
   /* Surfaces */
   --color-surface:          #FFFFFF; /* Cards, sidebar, modals */
-  --color-page:             #F4F5F7; /* Page background */
+  --color-page:             #f5f5fa; /* Page background */
+  --color-fill:             #f1f5f9; /* Avatar bg, active nav pill */
   --color-border:           #dfddda; /* Dividers, table borders, input borders */
+  --color-border-strong:    #d9dae8; /* Stat card / block borders */
 
   /* Text */
   --color-ink:              #1c1b18; /* Primary text */
   --color-ink-secondary:    #545048; /* Labels, secondary text */
   --color-ink-placeholder:  #5a5c69; /* Input placeholder / empty text */
+  --color-ink-muted:        #858796; /* Subtitles, topnav username */
+
+  /* Feedback */
+  --color-success:          #71b771; /* Positive trend text */
+  --color-danger:           #ef2f2b; /* Negative trend, notification badge */
 
   /* Status — Invoice status badges */
   --color-status-pending:   #F97316; /* Waiting… (orange) */
@@ -56,8 +63,3 @@ body {
   line-height: 1.5;
 }
 
-/* Prototype canvas — fixed 1280px width, no responsive layout needed */
-#__next,
-body > div {
-  min-width: 1280px;
-}
