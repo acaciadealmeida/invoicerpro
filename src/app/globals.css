@@ -3,25 +3,26 @@
 /* ─── InvoicerPRO Design Tokens ──────────────────────────────────────────── */
 @theme {
   /* Brand */
-  --color-brand:            #E8271A; /* InvoicerPRO red — logo, destructive */
-  --color-primary:          #3B6FEB; /* Main blue — buttons, active nav, links, charts */
-  --color-primary-hover:    #2F5DD4; /* Darker blue for hover states */
+  --color-brand:            #FB0001; /* InvoicerPRO red — logo mark, destructive */
+  --color-primary:          #4476f9; /* Main blue — buttons, active nav, links, charts */
+  --color-primary-hover:    #3366e8; /* Darker blue for hover states */
 
   /* Surfaces */
   --color-surface:          #FFFFFF; /* Cards, sidebar, modals */
   --color-page:             #F4F5F7; /* Page background */
-  --color-border:           #E5E7EB; /* Dividers, table borders, input borders */
+  --color-border:           #dfddda; /* Dividers, table borders, input borders */
 
   /* Text */
-  --color-ink:              #1A1C2A; /* Primary text */
-  --color-ink-secondary:    #6B7280; /* Secondary text, placeholders */
+  --color-ink:              #1c1b18; /* Primary text */
+  --color-ink-secondary:    #545048; /* Labels, secondary text */
+  --color-ink-placeholder:  #5a5c69; /* Input placeholder / empty text */
 
   /* Status — Invoice status badges */
   --color-status-pending:   #F97316; /* Waiting… (orange) */
   --color-status-confirmed: #16A34A; /* Confirmed (green) */
   --color-status-submitted: #7C3AED; /* Submitted (purple) */
-  --color-status-paid:      #3B6FEB; /* Paid out (same as primary) */
-  --color-status-draft:     #6B7280; /* Draft (gray) */
+  --color-status-paid:      #4476f9; /* Paid out (same as primary) */
+  --color-status-draft:     #545048; /* Draft (gray) */
 
   /* Typography */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
