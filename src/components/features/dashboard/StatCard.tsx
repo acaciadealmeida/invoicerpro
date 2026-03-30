@@ -4,10 +4,11 @@ interface StatCardProps {
   change: string;
   trend: "up" | "down";
   icon: React.ReactNode;
+  trendColor?: string;
 }
 
-export function StatCard({ label, value, change, trend, icon }: StatCardProps) {
-  const trendColor = trend === "up" ? "var(--color-success)" : "var(--color-danger)";
+export function StatCard({ label, value, change, trend, icon, trendColor }: StatCardProps) {
+  trendColor = trendColor ?? (trend === "up" ? "var(--color-success)" : "var(--color-danger)");
   const trendWord = trend === "up" ? "more" : "less";
 
   return (
